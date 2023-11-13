@@ -1,0 +1,89 @@
+{% load static %}
+
+{% include 'partials/header.html' %}
+
+{% block content %}
+
+{% include 'partials/dpfadmin.html' %}
+
+{% include 'partials/welcome.html' %}
+
+<!-- End Left menu area -->
+
+
+<style>
+    .rowform{
+        margin-top: 5%;
+    }
+</style>
+<div class="password-meter-area mg-b-15">
+    <div class="container-fluid">
+        <div class="rowform">                      
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div class="sparkline9-list mg-t-30">
+                    <div class="sparkline9-hd">
+                        <div class="main-sparkline9-hd">
+                            <h1 class="text-aligne center">Ajouter une Approvisionnement<span class="password-mt-none"></span></h1>
+                        </div>
+                    </div>
+                    <div class="sparkline9-graph">
+                        <div id="pwd-container4">
+                            <form action="{% url 'ajouterAppro' %}" method="post">
+                                {% csrf_token %}
+                            <div class="form-group">
+                                    <label for="compteOp">Numero de compte</label>
+                                    <select class="select2_demo_3 form-control" name="compteOp" required>
+                                        <option>Selectionner</option>
+                                        {% for compteop in compteops %}
+                                            <option value="{{compteop.id}}">{{compteop.compteop}}</option>
+                                        {% endfor %}
+                                    </select>
+                            </div>
+                            <div class="form-group data-custon-pick" id="data_1">
+                                <label>Date</label>
+                                <div class="input-group date">
+                                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                    <input type="date" class="form-control" value="10/04/2017" name="date" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="agence">Agence</label>
+                                <select class="select2_demo_3 form-control" name="agence" required>
+                                    <option>Selectionner</option>
+                                    {% for agence in agences %}
+                                        <option value="{{agence.NoAgence}}">{{agence}}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="year">Montant</label>
+                                <input type="text" placeholder="montant" class="form-control" name="montant" required>
+                            / </div>
+                            <div class="form-group">
+                                <label for="direction">Direction</label>
+                                <select class="select2_demo_3 form-control" name="direction" required>
+                                    <option>Selectionner</option>
+                                    {% for direction in directions %}
+                                        <option value="{{direction.id}}">{{direction.nom}}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="payment-adress">
+                                        <button type="submit" class="btn btn-primary waves-effect waves-light">Ajouter</button>
+                                    </div>
+                                </div>
+                            </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
+
+{% include 'partials/footer.html' %}

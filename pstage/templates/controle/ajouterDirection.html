@@ -1,0 +1,80 @@
+{% load static %}
+
+{% include 'partials/header.html' %}
+
+{% block content %}
+
+{% include 'partials/admin.html' %}
+
+{% include 'partials/welcome.html' %}
+<!-- End Left menu area -->
+
+
+<style>
+    .rowform{
+        margin-top: 5%;
+    }
+</style>
+<div class="password-meter-area mg-b-15">
+    <div class="container-fluid">
+        <div class="rowform">                      
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div class="sparkline9-list mg-t-30">
+                    <div class="sparkline9-hd">
+                        <div class="main-sparkline9-hd">
+                            <h1 class="text-aligne center">Ajouter une Direction<span class="password-mt-none"></span></h1>
+                        </div>
+                    </div>
+                    <div class="sparkline9-graph">
+                        <div id="pwd-container4">
+                            <form action="{% url 'ajouterDirection' %}" method="post">
+                                {% csrf_token %}
+                                <div class="form-group">
+                                    <label for="agence">Agence</label>
+                                    <select class="select2_demo_3 form-control" name="agence" required>
+                                        <option>Selectionner</option>
+                                        {% for agence in agences %}
+                                            <option value="{{agence.NoAgence}}">{{agence.nom}}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            <div class="form-group">
+                                <label for="familyname">Nom</label>
+                                <input type="text" class="form-control" id="familyname" placeholder="Nom" name="nom" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="">Numero de telephone</label>
+                                <input type="text" class="form-control example4" id="password4" name="tel" placeholder="Numero de telephone" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="">Email</label>
+                                <input type="email" class="form-control example4" id="password4" name="mail" placeholder="Email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="agent">Agent</label>
+                                <select class="select2_demo_3 form-control" name="agent" required>
+                                    <option>Selectionner</option>
+                                    {% for agent in agents %}
+                                        <option value="{{agent.matricule}}">{{agent.nom}} {{agent.prenom}} </option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="payment-adress">
+                                        <button type="submit" class="btn btn-primary waves-effect waves-light">Ajouter</button>
+                                    </div>
+                                </div>
+                            </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
+
+{% include 'partials/footer.html' %}

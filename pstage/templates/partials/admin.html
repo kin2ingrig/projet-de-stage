@@ -1,0 +1,135 @@
+{% load static %}
+
+<!--[if lt IE 8]>
+		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+	<![endif]-->
+    <!-- Start Left menu area -->
+    <div class="left-sidebar-pro">
+        <nav id="sidebar" class="">
+            <div class="sidebar-header">
+                <a href=""><img class="main-logo" src="" alt="" />ConsoCtrlPosteBF</a>
+                <strong><a href=""><img src="" alt="" /></a></strong>
+            </div>
+            <div class="left-custom-menu-adp-wrap comment-scrollbar">
+                <nav class="sidebar-nav left-sidebar-menu-pro">
+                    <ul class="metismenu" id="menu1">
+                        <li class="active">
+                            <a class="" href="{% url 'administrateur' %}">
+								   <!-- <span class="educate-icon educate-home icon-wrap"></span> -->
+								   <span class="mini-click-non"><i class="fa fa-tachometer" aria-hidden="true"></i>
+                                    Tableau de bord</span>
+							</a>
+                        </li>
+                        <li>
+                            <a class="has-arrow" href="" aria-expanded="false">
+                                <!-- <span class="educate-icon educate-professor icon-wrap"></span> -->
+                                <span class="mini-click-non"> <i class="fa fa-home" aria-hidden="true"></i>
+                                Agence</span>
+                            </a>
+                            <ul class="submenu-angle" aria-expanded="false">
+                                <li><a title="tous les agences" href="{% url 'listeAgence' %}"><span class="mini-sub-pro">Liste</span></a></li>
+                                <li><a title="Ajouter une agence" href="{% url 'ajouterAgence' %}"><span class="mini-sub-pro">Ajouter</span></a></li>
+                                <li><a title="Professor Profile" href=""><span class="mini-sub-pro">Profile</span></a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="has-arrow" href="" aria-expanded="false">
+                                <!-- <span class="educate-icon educate-student icon-wrap"></span> -->
+                                <span class="mini-click-non"> <i class="fa fa-user" aria-hidden="true"></i>
+                                Agent</span>
+                            </a>
+                            <ul class="submenu-angle" aria-expanded="false">
+                                <li><a title="All Students" href="{% url 'listeAgent' %}"><span class="mini-sub-pro">Liste</span></a></li>
+                                <li><a title="Add Students" href="{% url 'ajouterAgent' %}"><span class="mini-sub-pro">Ajouter</span></a></li>
+                                <li><a title="Students Profile" href=""><span class="mini-sub-pro">Profile</span></a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="has-arrow" href="" aria-expanded="false">
+                                <!-- <span class="educate-icon educate-course icon-wrap"></span> -->
+                                <span class="mini-click-non"><i class="fa fa-money" aria-hidden="true"></i>
+                                Caisse</span></a>
+                            <ul class="submenu-angle" aria-expanded="false">
+                                <li><a title="All Students" href="{% url 'listeCaisse' %}"><span class="mini-sub-pro">Liste</span></a></li>
+                                <li><a title="Add Students" href="{% url 'ajouterCaisse' %}"><span class="mini-sub-pro">Ajouter</span></a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="has-arrow" href="" aria-expanded="false">
+                                <!-- <span class="educate-icon educate-department icon-wrap"></span>  -->
+                                <span class="mini-click-non"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i>
+                                Direction</span></a>
+                            <ul class="submenu-angle" aria-expanded="false">
+                                <li><a title="All Students" href="{% url 'listeDirection' %}"><span class="mini-sub-pro">Liste</span></a></li>
+                                <li><a title="Add Students" href="{% url 'ajouterDirection' %}"><span class="mini-sub-pro">Ajouter</span></a></li>
+                                <li><a title="Students Profile" href=""><span class="mini-sub-pro">Profile</span></a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="has-arrow" href="" aria-expanded="false">
+                                <!-- <span class="educate-icon educate-message icon-wrap"></span>  -->
+                                <span class="mini-click-non"><i class="fa fa-briefcase" aria-hidden="true"></i>
+                                Fonction</span></a>
+                            <ul class="submenu-angle" aria-expanded="false">
+                                <li><a title="All Students" href="{% url 'listeFonction' %}"><span class="mini-sub-pro">Liste</span></a></li>
+                                <li><a title="Add Students" href="{% url 'ajouterFonction' %}"><span class="mini-sub-pro">Ajouter</span></a></li>
+                                <li><a title="Students Profile" href=""><span class="mini-sub-pro">Profile</span></a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="has-arrow" href="" aria-expanded="false">
+                                <!-- <span class="educate-icon educate-interface icon-wrap"></span> -->
+                                 <span class="mini-click-non"><i class="fa fa-opera" aria-hidden="true"></i>
+                                Operateur</span></a>
+                            <ul class="submenu-angle interface-mini-nb-dp" aria-expanded="false">
+                                <li><a title="All Students" href="{% url 'listeOperateur' %}"><span class="mini-sub-pro">Liste</span></a></li>
+                                <li><a title="Add Students" href="{% url 'ajouterOperateur' %}"><span class="mini-sub-pro">Ajouter</span></a></li>
+                                <li><a title="Students Profile" href=""><span class="mini-sub-pro">Profile</span></a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="has-arrow" href="" aria-expanded="false">
+                                <!-- <span class="educate-icon educate-charts icon-wrap"></span> -->
+                                <span class="mini-click-non"><i class="fa fa-address-card" aria-hidden="true"></i>
+                                Service</span></a>
+                            <ul class="submenu-angle chart-mini-nb-dp" aria-expanded="false">
+                                <li><a title="All Students" href="{% url 'listeService' %}"><span class="mini-sub-pro">Liste</span></a></li>
+                                <li><a title="Add Students" href="{% url 'ajouterService' %}"><span class="mini-sub-pro">Ajouter</span></a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="has-arrow" href="" aria-expanded="false">
+                                <!-- <span class="educate-icon educate-charts icon-wrap"></span> -->
+                                <span class="mini-click-non"><i class="" aria-hidden="true"></i>
+                                Compte operateur</span></a>
+                            <ul class="submenu-angle chart-mini-nb-dp" aria-expanded="false">
+                                <li><a title="All Students" href="{% url 'listeCompteOp' %}"><span class="mini-sub-pro">Liste</span></a></li>
+                                <li><a title="Add Students" href="{% url 'ajouterCompteOp' %}"><span class="mini-sub-pro">Ajouter</span></a></li>
+                            </ul>
+                        </li>
+                        
+                        <li>
+                            <a class="has-arrow" href="" aria-expanded="false">
+                                <!-- <span class="educate-icon educate-charts icon-wrap"></span> -->
+                                <span class="mini-click-non"><i class="" aria-hidden="true"></i>
+                                Nature</span></a>
+                            <ul class="submenu-angle chart-mini-nb-dp" aria-expanded="false">
+                                <li><a title="All Students" href="{% url 'listeNature' %}"><span class="mini-sub-pro">Liste</span></a></li>
+                                <li><a title="Add Students" href="{% url 'ajouterNature' %}"><span class="mini-sub-pro">Ajouter</span></a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="has-arrow" href="" aria-expanded="false">
+                                <!-- <span class="educate-icon educate-charts icon-wrap"></span> -->
+                                <span class="mini-click-non"><i class="" aria-hidden="true"></i>
+                                TypeOperation</span></a>
+                            <ul class="submenu-angle chart-mini-nb-dp" aria-expanded="false">
+                                <li><a title="All Students" href="{% url 'listeTypeOp' %}"><span class="mini-sub-pro">Liste</span></a></li>
+                                <li><a title="Add Students" href="{% url 'ajouterTypeOp' %}"><span class="mini-sub-pro">Ajouter</span></a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </nav>
+    </div>

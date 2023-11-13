@@ -1,0 +1,73 @@
+{% include 'partials/header.html' %}
+
+
+{% block content %}
+{% include "partials/cccoadmin.html" %}
+
+  
+{% include 'partials/welcome.html' %}
+
+
+
+<h1>Détail de la consolidation</h1>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Champ</th>
+                <th>Valeur de l'opération</th>
+                <th>Valeur du bordereau</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for difference in differences %}
+                <tr>
+                    <td>{{ difference.champ }}</td>
+                    <td>{{ difference.valeur_operation }}</td>
+                    <td>{{ difference.valeur_bordereau }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{% url 'controle:consolidation' %}" class="btn btn-primary">Retour à la liste des consolidations</a
+
+<div class="modal fade" id="detail" tabindex="-1" role="dialog" aria-labelledby="detailLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="detailLabel">Détails de l'opération</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          {% block content %}
+          <h3>Informations de l'opération</h3>
+  <p>
+    <strong>Montant :</strong> {{ operation.montant }}
+  </p>
+  <p>
+    <strong>Identifiant :</strong> {{ operation.refOp }}
+  </p>
+  <p>
+    <strong>Numéro de téléphone :</strong> {{ operation.client.tel }}
+  </p>
+  <h3>Informations du bordereau d'opération</h3>
+  <p>
+    <strong>Montant :</strong> {{ bordereauop.amount }}
+  </p>
+  <p>
+    <strong>Identifiant :</strong> {{ bordereauop.idtransfer }}
+  </p>
+  <p>
+    <strong>Numéro de téléphone :</strong> {{ bordereauop.statement }}</p>
+          {% endblock %}
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>

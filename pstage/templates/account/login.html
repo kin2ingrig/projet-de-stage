@@ -1,0 +1,46 @@
+{% load static %}
+
+{% include 'partials/header.html' %}
+
+{% block content %}
+
+    <!--[if lt IE 8]>
+		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+	<![endif]-->
+	<div class="error-pagewrap">
+		<div class="error-page-int">
+			<div class="text-center m-b-md custom-login">
+				<h3>Connectez-vous</h3>
+			</div>
+            {% if messages %}
+            {% endif %}
+			<div class="content-error">
+				<div class="hpanel">
+                    <div class="panel-body">
+                        <form action="{% url 'login' %}" id="loginForm" method="post">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label class="control-label" for="username">Nom d'utilisateur</label>
+                                <input type="text" placeholder="Votre nom" title="Please enter you username" required="" value="" name="username" id="username" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label" for="password">Mot de passe</label>
+                                <input type="password" title="Please enter your password" placeholder="Votre mot de passe" required="" value="" name="password" id="password" class="form-control" required>
+                            </div>
+                            <!-- <div class="checkbox login-checkbox">
+                                <label>
+										<input type="checkbox" class="i-checks"> Remember me </label>
+                            </div> -->
+                            <button class="btn btn-success btn-block loginbtn">Connectez-vous</button>
+                            <!-- <a class="btn btn-default btn-block" href="{% url 'admindjango' %}">Admin</a> -->
+                            <div class="messages">
+                                {% for message in messages %}
+                                    <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                                {% endfor %}
+                            </div>
+                        </form>
+                    </div>
+                </div>
+			</div>
+{% include 'partials/footer.html' %}
+{% endblock content %}

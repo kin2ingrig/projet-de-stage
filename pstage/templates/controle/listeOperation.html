@@ -1,0 +1,90 @@
+{% load static %}
+
+{% include 'partials/header.html' %}
+
+
+{% block content %}
+{% include 'partials/agentadmin.html' %}
+
+
+<style>
+    .product-status{
+        margin-top: 10%;
+    }
+</style>
+
+<div class="product-status mg-b-15">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="product-status-wrap drp-lst">
+                    <h4>Liste des operations</h4>
+                    <style>
+                        .col-6{
+                            text-align: center;
+                        }
+                    </style>
+                    <div class="text-center"> 
+                        <form method="GET" role="search" action="" class="form-inline">
+                            <div class="form-group">
+                                <input type="text" name="q" placeholder="Rechercher..." class="form-control">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Rechercher</button>
+                        </form>
+                    
+                    <div class="add-product">
+                        <a href="{% url 'ajouterOperation' %}">Ajouter</a>
+                    </div>
+
+                    <div class="text-right">
+                        <a href="" class="btn btn-primary">Exporter</a>
+                    </div>
+                
+                    <div class="asset-inner">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Type d'Opération</th>
+                                    <th>Opérateur</th>
+                                    <th>Montant</th>
+                                    <th>Id Transfert</th>
+                                    <!-- <th>Service</th> -->
+                                    <th>Agence</th>
+                                    <th>Agent</th>
+                                    <!-- <th>Caisse</th> -->
+                                    <!-- <th>Client</th> -->
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for operation in operations %}
+                                <tr>
+                                    <td>{{ operation.date }}</td>
+                                    <td>{{ operation.typeOp }}</td>
+                                    <td>{{ operation.operateur }}</td>
+                                    <td>{{ operation.montant }}</td>
+                                    <td>{{ operation.refOp }}</td>
+                                    <!-- <td>{{ operation.service }}</td> -->
+                                    <td>{{ operation.agence }}</td>
+                                    <td>{{ operation.agent }}</td>
+                                    <!-- <td>{{ operation.caisse }}</td> -->
+                                    <!-- <td>{{ operation.client }} {{ operation.client }}</td> -->
+                                    <td>
+                                        <button data-toggle="tooltip" title="Edit" class="pd-setting"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+                                        <button data-toggle="tooltip" title="Trash" class="pd-setting"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
+
+{% include 'partials/footer.html' %}
